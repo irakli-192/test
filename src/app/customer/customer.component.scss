@@ -1,0 +1,45 @@
+.bottom{
+    display: flex;
+    .currentUser{
+        width: 700px;
+        height: 120px;
+        background-color: white;
+        display: flex;
+        align-items: center;
+        border-radius: 8px;
+        justify-content: center;
+        .content{
+            display: flex;
+            width: 100%;
+            justify-content: center;
+            .avatar{
+                width:40px;
+                height:40px;
+            }
+            .currentInput{
+                font-size: 20px;
+                font-family: Rubik;
+                max-width: 500px;
+                padding: 10px;
+                box-sizing: border-box;
+                width: 100%;
+                max-height: 80px;
+                height: 100vh;
+                border: 1px solid #5c5bc5 ;
+                border-radius: 8px;
+                margin: 0 10px 0 10px;
+            }
+            .currentBtn{
+                width: 90px;
+                height: 40px;
+                border: none;
+                background-color: #5c5bc5;
+                color: white;
+                text-transform: uppercase;
+                font-size: 16px;
+                font-weight: 500;
+                border-radius: 8px;
+            }
+        }
+    }
+}

@@ -1,0 +1,8 @@
+<div class="ReplyBox">
+    <app-reply-template [mainObj]="mainObj" *ngFor="let i of comment.replies"  [index]="comment.replies.indexOf(i)" [replies]="comment.replies" class="app-reply-template"></app-reply-template>
+    <div class="replyInput" *ngIf="showInput">
+        <img src='../../assets/images/avatars/image-juliusomo.png' alt="" class="avatar">
+        <textarea class="currentInput" #currText></textarea>
+        <button  class="currentBtn" (click)="addReply(currText)">Reply</button>
+    </div>
+</div>

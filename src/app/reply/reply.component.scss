@@ -1,0 +1,50 @@
+.ReplyBox{
+    font-family: Rubik;
+    width:600px;
+    // background-color: white;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    // align-items: flex-end;
+    // justify-content: center;
+    // padding: 25px 25px 25px 25px;
+    margin-bottom: 20px;
+    gap: 15px;
+    .replyInput{
+        font-family: Rubik;
+        width: 600px;
+        background-color: white;
+        border-radius: 8px;
+        display: flex;
+        justify-content: center;
+        padding: 25px 0 25px 0;
+        margin-bottom: 20px;
+        .avatar{
+            width:40px;
+            height:40px;
+        }
+        .currentInput{
+            padding: 10px;
+            box-sizing: border-box;
+            font-size: 20px;
+            max-width: 400px;
+            width: 100%;
+            height: 80px;
+            border: 1px solid #5c5bc5 ;
+            border-radius: 8px;
+            margin: 0 10px 0 10px;
+        }
+        .currentBtn{
+            width: 90px;
+            height: 40px;
+            border: none;
+            background-color: #5c5bc5;
+            color: white;
+            text-transform: uppercase;
+            font-size: 16px;
+            font-weight: 500;
+            border-radius: 8px;
+            
+        }   
+    }
+}

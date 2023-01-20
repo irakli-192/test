@@ -1,0 +1,28 @@
+<div class="wrapper">
+    <div class=like>
+        <img src='../../assets/images/icon-minus.svg' class=minusReply (click)="Minus()" />
+        <h2 class=amountReply>{{replies[index].score}}</h2>
+        <img src='../../assets/images/icon-plus.svg' class=plusReply (click)="Plus()" />
+    </div>
+    <div class=comm>
+        <div class='first'>
+            <div class=left>
+                <img src=${{replies[index].user.image.png}} class=av />
+                <h2 class=username>{{replies[index].user.username}}</h2>
+                <span class=you *ngIf='replies[index].user.username=="juliusomo" ? true:false'>you</span>
+                <span class=time>{{templOptions.createdAt}}</span>
+            </div>
+            <div class=right *ngIf='replies[index].user.username=="juliusomo" ? true:false'>
+                <img (click)='remove(replies[index].id)' src='../../assets/images/icon-delete.svg'/>
+                <span class=delete>Delete</span>
+                <img src='../../assets/images/icon-edit.svg'/>
+                <span class=edit>edit</span>
+            </div>
+            <div class=right *ngIf='replies[index].user.username=="juliusomo" ? false:true'>
+                <img src='../../assets/images/icon-reply.svg' class=reply />
+                <span class=rep>Reply</span>
+            </div>
+        </div>
+        <p class=replyPar><span class=author>@{{replies[index].replyingTo}} </span>{{replies[index].content}}</p>
+    </div>
+</div>

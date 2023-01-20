@@ -1,0 +1,28 @@
+<div class="box">
+    <div class=like>
+        <img src='../../assets/images/icon-minus.svg' class=minus (click)="Minus()"/>
+        <h2 class=amount>{{comment.score}}</h2>
+        <img src='../../assets/images/icon-plus.svg' class=plus (click)="Plus()"/>
+    </div>
+    <div class=comm>
+        <div class='first'>
+            <div class=left>
+                <img src=${{comment.user.image.png}} class=av />
+                <h2 class=username>{{comment.user.username}}</h2>
+                <div class=time>{{comment.createdAt}}</div>
+            </div>
+            <div class=right *ngIf="comment.user.username=='juliusomo'?false:true">
+                <img src='../../assets/images/icon-reply.svg' (click)="Reply(comment.id)" class=reply />
+                <span class=rep >Reply</span>
+            </div>
+            <div class=right *ngIf='comment.user.username=="juliusomo" ? true:false'>
+                <img (click)='remove(comment.id)' src='../../assets/images/icon-delete.svg'/>
+                <span class=delete>Delete</span>
+                <img src='../../assets/images/icon-edit.svg'/>
+                <span class=edit>edit</span>
+            </div>
+        </div>
+        <p class=par>{{comment.content}}</p>
+    </div>
+</div>
+<app-reply [mainObj]="mainObj" [comment]="comment" [showInput]="showInput" [name]="comment.user.username"  class="app-reply"></app-reply>
