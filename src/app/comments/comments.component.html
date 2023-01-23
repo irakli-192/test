@@ -1,3 +1,3 @@
 <div class="comments">
-    <app-comment-template *ngFor="let i of commentsData" [comment]="i" [commentsData]="commentsData" [mainObj]="mainObj"></app-comment-template>
+    <app-comment-template *ngFor="let i of mainObj.comments" [comment]="i" [commentsData]="commentsData" [mainObj]="mainObj"></app-comment-template>
 </div>

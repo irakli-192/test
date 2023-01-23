@@ -16,13 +16,22 @@
                 <span class=rep >Reply</span>
             </div>
             <div class=right *ngIf='comment.user.username=="juliusomo" ? true:false'>
-                <img (click)='remove(comment.id)' src='../../assets/images/icon-delete.svg'/>
+                <img (click)='error()' src='../../assets/images/icon-delete.svg' class="deleteIcon"/>
                 <span class=delete>Delete</span>
-                <img src='../../assets/images/icon-edit.svg'/>
+                <img src='../../assets/images/icon-edit.svg' class="editIcon"/>
                 <span class=edit>edit</span>
             </div>
         </div>
         <p class=par>{{comment.content}}</p>
     </div>
 </div>
-<app-reply [mainObj]="mainObj" [comment]="comment" [showInput]="showInput" [name]="comment.user.username"  class="app-reply"></app-reply>
+<div class="errorBox" *ngIf="commentErrorModel">
+    <div class="error">
+        <h3>Do you really want to delete it?</h3>
+        <div class="buttons">
+            <button class="Delete" (click)="remove(comment.id)">Delete</button>
+            <button class="close" (click)="close()">Close</button>
+        </div>
+    </div>
+</div>
+<app-reply (show)="show($event)" [mainObj]="mainObj" [comment]="comment" [showInput]="showInput" [name]="comment.user.username"  class="app-reply"></app-reply>

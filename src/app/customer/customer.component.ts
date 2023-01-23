@@ -7,10 +7,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./customer.component.scss']
 })
 export class CustomerComponent {
-  @Input() commentsData:object[]=[];
+  @Input() commentsData:object[];
+  @Input() mainObj:any;
   id=100
   addComment(event:HTMLTextAreaElement){
-    this.commentsData.push({
+    this.mainObj.comments.push({
       id:this.id,
       content:event.value,
       createdAt:'1 second ago',
@@ -25,5 +26,9 @@ export class CustomerComponent {
     })
     this.id+=1
     event.value=''
+    console.log(this.mainObj);
+    localStorage.setItem('object',JSON.stringify(this.mainObj))
+
   }
+  
 }

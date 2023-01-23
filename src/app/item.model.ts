@@ -1,3 +1,7 @@
+export interface mainObject{
+    currentUser:user,
+    comments:object[]
+}
 export interface item{
     id:number;
     content:string;

@@ -1,4 +1,5 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input,Output } from '@angular/core';
+import { mainObject } from '../item.model';
 
 @Component({
   selector: 'app-reply-template',
@@ -10,31 +11,49 @@ import { Component, Input } from '@angular/core';
 // }
 export class ReplyTemplateComponent {
   show:boolean=true;
-  @Input() templOptions:any={}
-  @Input() index:any;
-  @Input() replies:any[]=[]
-  @Input() comments:any;
-  @Input() mainObj:any={};
+  errorModel:boolean=false;
+  editInput:boolean=true
+  // @Input() templOptions:any={}
+  @Input() index:number;
+  @Input() replies:any[];
+  // @Input() comments:any;
+  @Input() mainObj:mainObject;
   
-  remove(id:number){
-    console.log(this.index,this.replies)
+  error(){
+    this.errorModel=true
+    
+  }
+  remove(){
     if(this.index==0){
-      this.replies.shift()
-    }else{
+        this.replies.shift()
+      }else{
       this.replies.splice(this.index,this.index)
     }
+  
+    localStorage.setItem('object',JSON.stringify(this.mainObj))
+
   }
-  Minus(){
+  close(){
+    this.errorModel=false
+  }
+  edit(){
+    this.editInput=!this.editInput
+  }
+  Minus(id:number){
     if(this.replies[this.index].score>0){
       this.replies[this.index].score-=1
     }
+    console.log(this.mainObj)
+
     localStorage.setItem('object',JSON.stringify(this.mainObj))
-    console.log(this.mainObj);
-    
+
   }
-  Plus(){
+  send(){
+    this.editInput=true
+  }
+  Plus(id:number){
     this.replies[this.index].score+=1
     localStorage.setItem('object',JSON.stringify(this.mainObj))
+    console.log(this.mainObj)
   }
-  
 }
