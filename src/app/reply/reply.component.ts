@@ -15,9 +15,7 @@ export class ReplyComponent {
   @Input() mainObj:mainObject;
   @Output() show:EventEmitter<boolean>=new EventEmitter()
 
-  addReply(event:HTMLTextAreaElement){
-    console.log(this.comment);
-    
+  addReply(event:HTMLTextAreaElement){    
     this.comment.replies.push({
       content:event.value,
       createdAt:'1 second ago',
@@ -31,11 +29,9 @@ export class ReplyComponent {
         username:'juliusomo'
       }
     })
-    // this.replyId/=10
     this.showInput=!this.showInput
     this.show.emit(this.showInput)
     event.value=''
-    console.log(this.mainObj,37)
     localStorage.setItem('object',JSON.stringify(this.mainObj))
 
   }

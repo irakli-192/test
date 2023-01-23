@@ -1,5 +1,6 @@
 import { Input } from '@angular/core';
 import { Component } from '@angular/core';
+import { mainObject } from '../item.model';
 
 @Component({
   selector: 'app-customer',
@@ -8,11 +9,10 @@ import { Component } from '@angular/core';
 })
 export class CustomerComponent {
   @Input() commentsData:object[];
-  @Input() mainObj:any;
-  id=100
+  @Input() mainObj:mainObject;
   addComment(event:HTMLTextAreaElement){
     this.mainObj.comments.push({
-      id:this.id,
+      id:Math.random(),
       content:event.value,
       createdAt:'1 second ago',
       score:0,
@@ -24,7 +24,6 @@ export class CustomerComponent {
       },
       replies:[]
     })
-    this.id+=1
     event.value=''
     console.log(this.mainObj);
     localStorage.setItem('object',JSON.stringify(this.mainObj))

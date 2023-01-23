@@ -7,6 +7,7 @@ import { CommentsComponent } from './comments/comments.component';
 import { CommentTemplateComponent } from './comment-template/comment-template.component';
 import { ReplyComponent } from './reply/reply.component';
 import { ReplyTemplateComponent } from './reply-template/reply-template.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { ReplyTemplateComponent } from './reply-template/reply-template.componen
     ReplyTemplateComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

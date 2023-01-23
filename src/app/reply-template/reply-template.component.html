@@ -23,9 +23,9 @@
                 <span class=rep>Reply</span>
             </div>
         </div>
-        <p class=replyPar #currentPar *ngIf="editInput"><span class=author>@{{replies[index].replyingTo}} </span>{{replies[index].content}}</p>
-        <textarea class="currentInput" *ngIf="!editInput"></textarea>
-        <button  class="currentBtn" *ngIf="!editInput" (click)="send()">Reply</button>
+        <p class=replyPar *ngIf="editInput"><span class=author>@{{replies[index].replyingTo}} </span>{{replies[index].content}}</p>
+        <textarea class="currentInput" [(ngModel)]="content" *ngIf="!editInput"></textarea>
+        <button  class="currentBtn"  *ngIf="!editInput" (click)="send()">Reply</button>
 
     </div>
 </div>

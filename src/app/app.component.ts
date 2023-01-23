@@ -23,7 +23,3 @@ export class AppComponent implements OnInit{
     
   }
 }
-// if(JSON.parse(localStorage.getItem('object'))!=null)
-// let a=new AppComponent()
-// console.log(a.mainObj)
-// console.log(a.commentsData)
