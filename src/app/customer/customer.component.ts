@@ -10,11 +10,13 @@ import { mainObject } from '../item.model';
 export class CustomerComponent {
   @Input() commentsData:object[];
   @Input() mainObj:mainObject;
+
   addComment(event:HTMLTextAreaElement){
+  
     this.mainObj.comments.push({
       id:Math.random(),
       content:event.value,
-      createdAt:'1 second ago',
+      createdAt:'now',
       score:0,
       user:{
         image:{
