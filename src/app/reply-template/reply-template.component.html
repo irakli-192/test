@@ -1,40 +1,76 @@
 <div class="wrapper">
-    <div class=like>
-        <img src='../../assets/images/icon-minus.svg' class=minusReply (click)="Minus(replies[index].score)" />
-        <h2 class=amountReply>{{replies[index].score}}</h2>
-        <img src='../../assets/images/icon-plus.svg' class=plusReply (click)="Plus(replies[index].score)" />
+  <div class="like">
+    <img
+      src="../../assets/images/icon-minus.svg"
+      class="minusReply"
+      (click)="Minus(replies[index].score)"
+    />
+    <h2 class="amountReply">{{ replies[index].score }}</h2>
+    <img
+      src="../../assets/images/icon-plus.svg"
+      class="plusReply"
+      (click)="Plus(replies[index].score)"
+    />
+  </div>
+  <div class="comm">
+    <div class="first">
+      <div class="left">
+        <img src="${{ replies[index].user.image.png }}" class="av" />
+        <h2 class="username">{{ replies[index].user.username }}</h2>
+        <span
+          class="you"
+          *ngIf="replies[index].user.username == 'juliusomo' ? true : false"
+          >you</span
+        >
+        <span class="time">{{ replies[index].createdAt }}</span>
+      </div>
+      <div
+        class="right"
+        *ngIf="replies[index].user.username == 'juliusomo' ? true : false"
+      >
+        <img
+          *ngIf="editInput"
+          (click)="error()"
+          src="../../assets/images/icon-delete.svg"
+          class="pointer"
+        />
+        <span *ngIf="editInput" class="delete">Delete</span>
+        <img
+          *ngIf="editInput"
+          (click)="edit()"
+          src="../../assets/images/icon-edit.svg"
+          class="pointer"
+        />
+        <span *ngIf="editInput" class="edit">edit</span>
+      </div>
+      <div
+        class="right"
+        *ngIf="replies[index].user.username == 'juliusomo' ? false : true"
+      >
+        <img src="../../assets/images/icon-reply.svg" class="reply" />
+        <span class="rep">Reply</span>
+      </div>
     </div>
-    <div class=comm>
-        <div class='first'>
-            <div class=left>
-                <img src=${{replies[index].user.image.png}} class=av />
-                <h2 class=username>{{replies[index].user.username}}</h2>
-                <span class=you *ngIf='replies[index].user.username=="juliusomo" ? true:false'>you</span>
-                <span class=time>{{replies[index].createdAt}}</span>
-            </div>
-            <div class=right *ngIf='replies[index].user.username=="juliusomo" ? true:false'>
-                <img *ngIf="editInput" (click)='error()' src='../../assets/images/icon-delete.svg' class="pointer"/>
-                <span *ngIf="editInput" class=delete>Delete</span>
-                <img *ngIf="editInput" (click)='edit()' src='../../assets/images/icon-edit.svg' class="pointer"/>
-                <span *ngIf="editInput" class=edit>edit</span>
-            </div>
-            <div class=right *ngIf='replies[index].user.username=="juliusomo" ? false:true'>
-                <img src='../../assets/images/icon-reply.svg' class=reply />
-                <span class=rep>Reply</span>
-            </div>
-        </div>
-        <p class=replyPar *ngIf="editInput"><span class=author>@{{replies[index].replyingTo}} </span>{{replies[index].content}}</p>
-        <textarea class="currentInput" [(ngModel)]="content" *ngIf="!editInput"></textarea>
-        <button  class="currentBtn"  *ngIf="!editInput" (click)="send()">Reply</button>
-
-    </div>
+    <p class="replyPar" *ngIf="editInput">
+      <span class="author">@{{ replies[index].replyingTo }} </span
+      >{{ replies[index].content }}
+    </p>
+    <textarea
+      class="currentInput"
+      [(ngModel)]="content"
+      *ngIf="!editInput"
+    ></textarea>
+    <button class="currentBtn" *ngIf="!editInput" (click)="send()">
+      Reply
+    </button>
+  </div>
 </div>
 <div class="errorBox" *ngIf="errorModel">
-    <div class="error">
-        <h3>Do you really want to delete it?</h3>
-        <div class="buttons">
-            <button class="Delete" (click)="remove()">Delete</button>
-            <button class="close" (click)="close()">Close</button>
-        </div>
+  <div class="error">
+    <h3>Do you really want to delete it?</h3>
+    <div class="buttons">
+      <button class="Delete" (click)="remove()">Delete</button>
+      <button class="close" (click)="close()">Close</button>
     </div>
+  </div>
 </div>

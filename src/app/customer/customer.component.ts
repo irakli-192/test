@@ -5,31 +5,28 @@ import { mainObject } from '../item.model';
 @Component({
   selector: 'app-customer',
   templateUrl: './customer.component.html',
-  styleUrls: ['./customer.component.scss']
+  styleUrls: ['./customer.component.scss'],
 })
 export class CustomerComponent {
-  @Input() commentsData:object[];
-  @Input() mainObj:mainObject;
+  @Input() commentsData: object[];
+  @Input() mainObj: mainObject;
 
-  addComment(event:HTMLTextAreaElement){
-  
+  addComment(event: HTMLTextAreaElement) {
     this.mainObj.comments.push({
-      id:Math.random(),
-      content:event.value,
-      createdAt:'now',
-      score:0,
-      user:{
-        image:{
-          png:'../../assets/images/avatars/image-juliusomo.png'    
+      id: Math.random(),
+      content: event.value,
+      createdAt: 'now',
+      score: 0,
+      user: {
+        image: {
+          png: '../../assets/images/avatars/image-juliusomo.png',
         },
-        username:'juliusomo'
+        username: 'juliusomo',
       },
-      replies:[]
-    })
-    event.value=''
+      replies: [],
+    });
+    event.value = '';
     console.log(this.mainObj);
-    localStorage.setItem('object',JSON.stringify(this.mainObj))
-
+    localStorage.setItem('object', JSON.stringify(this.mainObj));
   }
-  
 }
